@@ -59,11 +59,6 @@ while True:
             pygame.quit()
             sys.exit()
             # closing the application
-        if event.type == pygame.KEYDOWN:#checking if any key is pressed
-            if event.key == pygame.K_SPACE:#checking if space bar is pressed
-                if bulletY == playerY:#checking if bullet y is equal to player y
-                    bulletShootSound.play()#playing bullet sound
-                bulletState = 'fire'#changing bullet state
         if event.type == pygame.VIDEORESIZE:#checking if the screen has been resized
             width,height = event.w,event.h #changing width and height
             res = (width,height)#changing resolution
@@ -82,6 +77,10 @@ while True:
         playerX -= 5  # changing playerX position by -5
     elif keys[pygame.K_RIGHT]:  # checking  right key is pressed
         playerX += 5  # changing playerX position by +5
+    if keys[pygame.K_SPACE]:
+        if bulletState == 'ready':
+            bulletShootSound.play()
+            bulletState = 'fire'
     if bulletState == 'fire':#excuting the below code if bulletState is fire
         bulletY -= 15#shooting bullet upwards by 15 pixels
         screen.blit(bullet, bullet_rect)#rendering bullet to screen
