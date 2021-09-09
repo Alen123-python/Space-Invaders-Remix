@@ -21,21 +21,21 @@ white = (255, 255, 255)
 # defining our colours
 clock = pygame.time.Clock()
 frame_rate = 60
-bg = pygame.image.load("Assets/Images/Background.jpeg")#loading background image
+bg = pygame.image.load("Assets/Images/Background.jpeg").convert()#loading background image
 bg = pygame.transform.scale(bg,res)#resizing background image to screen width and heigh
 # setting up our frame rate meter
-player = pygame.image.load("Assets/Images/Ship.png")  # loading ship image
+player = pygame.image.load("Assets/Images/Ship.png").convert_alpha()  # loading ship image
 player = pygame.transform.scale(player, (100, 100))  # resizing ship image to 100 pixel width and 100 pixel height
 playerX = width / 2 - 50  # setting our player X position
 playerY = height - 100  # setting our player Y position
-enemy = pygame.image.load("Assets/Images/Enemy.png") # loading enemy image
+enemy = pygame.image.load("Assets/Images/Enemy.png").convert_alpha() # loading enemy image
 enemy = pygame.transform.scale(enemy, (100,100)) # resizing enemy image to 100 pixel with and 100 pixel height
 enemyX = 0#Enemy X position
 enemyY = 0#Enemy Y position
 enemySpeed = 2 #Speed of Enemy movement
 DeadthSound = pygame.mixer.Sound("Assets/Music/Deadth.mp3")#loading deadth sound
 pygame.display.set_icon(pygame.transform.scale(enemy,(32,32)))#making our enemy image as the icon and resizing it to 32 by 32 pixels
-bullet = pygame.image.load("Assets/Images/Bullet.png")#loading bullet image
+bullet = pygame.image.load("Assets/Images/Bullet.png").convert_alpha()#loading bullet image
 bullet = pygame.transform.scale(bullet, (20,50))#setting bullet position
 bulletX = playerX+50#setting bullet X position
 bulletY = playerY#setting bullet Y position
